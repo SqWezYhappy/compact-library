@@ -1,0 +1,23 @@
+{
+  "name": "purple-library",
+  "version": "1.0.0",
+  "description": "Purple Library — библиотека приложений для Windows",
+  "main": "main.js",
+  "author": "you",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.purple.library",
+    "productName": "Purple Library",
+    "win": { "icon": "assets/icon.ico", "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": true, "perMachine": false },
+    "files": ["main.js", "preload.js", "renderer/**", "assets/**"],
+    "extraResources": [{ "from": "GlassPhone", "to": "GlassPhone" }]
+  }
+}
